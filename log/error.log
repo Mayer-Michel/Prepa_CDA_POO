@@ -116,3 +116,43 @@
 2024/11/22 09:16:00 [notice] 1#1: start worker process 34
 2024/11/22 09:16:00 [notice] 1#1: start worker process 35
 2024/11/22 09:16:00 [notice] 1#1: start worker process 36
+2024/11/22 13:37:27 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/default.conf:16
+2024/11/22 13:37:30 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/default.conf:16
+2024/11/22 13:37:32 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/default.conf:16
+2024/11/22 13:37:33 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/default.conf:16
+2024/11/22 13:37:34 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/default.conf:16
+2024/11/22 13:37:36 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/default.conf:16
+2024/11/22 13:37:39 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/default.conf:16
+2024/11/22 13:37:46 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/default.conf:16
+2024/11/22 13:39:01 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/default.conf:16
+2024/11/22 13:39:01 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/default.conf:16
+2024/11/22 13:39:02 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/default.conf:16
+2024/11/22 13:39:03 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/default.conf:16
+2024/11/22 13:39:04 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/default.conf:16
+2024/11/22 13:39:06 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/default.conf:16
+2024/11/22 13:39:10 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/default.conf:16
+2024/11/22 13:39:16 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/default.conf:16
+2024/11/22 13:39:29 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/default.conf:16
+2024/11/22 13:39:55 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/default.conf:16
+2024/11/22 13:40:46 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/default.conf:16
+2024/11/22 13:41:47 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/default.conf:16
+2024/11/22 13:42:47 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/default.conf:16
+2024/11/22 13:43:47 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/default.conf:16
+2024/11/22 13:44:47 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/default.conf:16
+2024/11/22 13:45:47 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/default.conf:16
+2024/11/22 13:46:48 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/default.conf:16
+2024/11/22 13:47:48 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/default.conf:16
+2024/11/22 13:48:48 [notice] 1#1: using the "epoll" event method
+2024/11/22 13:48:48 [notice] 1#1: nginx/1.26.2
+2024/11/22 13:48:48 [notice] 1#1: built by gcc 13.2.1 20240309 (Alpine 13.2.1_git20240309) 
+2024/11/22 13:48:48 [notice] 1#1: OS: Linux 6.10.11-linuxkit
+2024/11/22 13:48:48 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/11/22 13:48:48 [notice] 1#1: start worker processes
+2024/11/22 13:48:48 [notice] 1#1: start worker process 29
+2024/11/22 13:48:48 [notice] 1#1: start worker process 30
+2024/11/22 13:48:48 [notice] 1#1: start worker process 31
+2024/11/22 13:48:48 [notice] 1#1: start worker process 32
+2024/11/22 13:48:48 [notice] 1#1: start worker process 33
+2024/11/22 13:48:48 [notice] 1#1: start worker process 34
+2024/11/22 13:48:48 [notice] 1#1: start worker process 35
+2024/11/22 13:48:48 [notice] 1#1: start worker process 36

@@ -5,7 +5,10 @@ require_once "../vendor/autoload.php";
 
 // Déclaration des classes que l'on va utiliser dans le fichier 
 use App\App;
+use Symplefony\Database;
 
+var_dump( App::getApp());
+var_dump( Database::getDatabase());
 
 $truc =  App::getApp();
 $machin = clone $truc;
