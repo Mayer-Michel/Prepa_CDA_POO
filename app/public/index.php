@@ -6,8 +6,9 @@ require_once "../vendor/autoload.php";
 // Déclaration des classes que l'on va utiliser dans le fichier 
 use App\App;
 
-$truc = new App();
-$machin = new App();
+
+$truc =  App::getApp();
+$machin = clone $truc;
 
 $truc -> toto( ' Truc a dit ' );
 $truc -> toto( ' Et ensuite truc a dit ' );
