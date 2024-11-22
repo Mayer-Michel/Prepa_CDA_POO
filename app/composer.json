@@ -12,5 +12,7 @@
             "name": "Mayers Morals"
         }
     ],
-    "require": {}
+    "require": {
+        "miladrahimi/phprouter": "5.*"
+    }
 }
