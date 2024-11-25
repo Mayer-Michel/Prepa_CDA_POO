@@ -10,6 +10,7 @@ class PageController
         echo 'Bonjour depuis le controller ;)';
     }
 
+    // Page mentions légales
     public function ML(): void
     {
         echo 'Mention légales depuis le controller ;)';

@@ -7,17 +7,20 @@
 namespace App;
 
 use Exception;
+use Throwable;
 
-class App
+use MiladRahimi\PhpRouter\Router;
+use MiladRahimi\PhpRouter\Exceptions\RouteNotFoundException;
+
+use App\Controller\PageController;
+
+final class App
 {
-    // Singleto  etape 2: on crée une propriété statique pour stocker l'instance unique 
-    // "?self" : 
-    // - self représente le type de la class dans laquelle in est (ici = App)
-    // - ? précise que la valeur peut qussi contenir null 
     private static ?self $app_instance = null;
-    private string $last_message; 
+    
+    // Le routeur de l'application
+    private Router $router;
 
-    // Singleton etape 3: on crée un méthode publique statique qui permet d'obtenir l'instance unique
     public static function getApp(): self
     {
         // Si l'instance n'exite pas encore on la cée 
@@ -28,19 +31,47 @@ class App
         return self::$app_instance;
     }
 
-    public function toto(string $msg): void
+    // Démarage de l'application
+    public function start(): void
     {
-        $this -> last_message = $msg;
-        echo $msg. ' Je suis Toto !';
+        $this->registrationRoutes();
+        $this->startRouter();
     }
 
-    //Singleton etape 1: Bloquer l'utilisation de new depuis l'extérieur
-    // => passer le constructeur en "private"
-    private function __construct() { } 
-    // Singleton etape 4: Bloquer l'utilisation de "clone" depuis l'exterieur 
+    private function __construct() 
+    { 
+        // création du routeur
+        $this->router = Router::create();
+    } 
+
+    private function registrationRoutes(): void
+    {
+        // Pages communes 
+        $this->router->get( '/', [ PageController::class, 'index' ] );
+        $this->router->get( '/mentions-legales', [ PageController::class, 'ML' ] );
+    }
+
+    // Démarrage du routeur 
+    private function startRouter():void
+    {
+        try{
+            $this->router->dispatch();
+        }
+        
+        // Page 404 avec status HTTP adequant les pages non listée dans le routeur 
+        catch( RouteNotFoundException $M ){
+            http_response_code( 404 );
+            echo 'Oups... YOU HAVE BEEN HACKED!!! ';
+        }
+        // Erreur 500 avec status HTTP adequant pour tout autre problème temporaire ou non 
+        catch( Throwable $M ){
+            http_response_code( 500 );
+            echo 'Erreur interne du serveur';
+        }
+    }
+
     private function __clone() { }
-    // Singleton etape 5: Bloquer la désérialisation de l'objet (depuis la session par exemple)
-    // "private" est interdit pour ce cas, on va donc lui faire lancer une erreur
+
     public function __wakeup()
     {
        throw new Exception("Non c'est interdit !");
