@@ -11,7 +11,11 @@ class PageController
     {
         $view = new View( 'page:home' );
 
-        $view->render();
+        $data = [
+            'title' => 'Accueil - Autodingo'
+        ];
+
+        $view->render($data);
     }
 
     // Page mentions légales

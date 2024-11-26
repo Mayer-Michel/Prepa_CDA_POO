@@ -13,6 +13,8 @@ use MiladRahimi\PhpRouter\Router;
 use MiladRahimi\PhpRouter\Exceptions\RouteNotFoundException;
 use MiladRahimi\PhpRouter\Routing\Attributes;
 
+use Symplefony\View;
+
 use App\Controller\AdminController;
 use App\Controller\AuthController;
 use App\Controller\PageController;
@@ -76,13 +78,11 @@ final class App
         
         // Page 404 avec status HTTP adequant les pages non listée dans le routeur 
         catch( RouteNotFoundException $M ){
-            http_response_code( 404 );
-            echo 'Oups... YOU HAVE BEEN HACKED!!! ';
+            View::renderError( 404 );
         }
         // Erreur 500 avec status HTTP adequant pour tout autre problème temporaire ou non 
         catch( Throwable $M ){
-            http_response_code( 500 );
-            echo 'Erreur interne du serveur';
+            View::renderError( 500 );
         }
     }
 

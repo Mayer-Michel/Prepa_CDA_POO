@@ -7,7 +7,7 @@ class AuthController
     public static function isAdmin(): bool
     {
         // TODO: Le vrai contrôle de session
-        return false;
+        return true;
     }
     
 }
