@@ -3,9 +3,14 @@
 namespace Symplefony;
 
 use Exception;
+use PDO;
 
 class Database
 {
+    private const PDO_OPTIONS = [
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+    ];
+
     //Singleton etape 1: Bloquer l'utilisation de new depuis l'extérieur
     // => passer le constructeur en "private"
     private function __construct() { } 
@@ -14,17 +19,19 @@ class Database
     // "?self" : 
     // - self représente le type de la class dans laquelle in est (ici = App)
     // - ? précise que la valeur peut qussi contenir null
-    private static ?self $Database_instance = null;
+    private static ?PDO $pdo_instance = null;
 
     // Singleton etape 3: on crée un méthode publique statique qui permet d'obtenir l'instance unique
-    public static function getDatabase(): self
+    public static function getPDO(): PDO
     {
         // Si l'instance n'exite pas encore on la cée 
-        if( is_null( self::$Database_instance ) ){
-            self::$Database_instance = new self();
+        if( is_null( self::$pdo_instance ) ){
+            $dsn = sprintf( 'mysql:host=%s;dbname=%s', $_ENV['db_host'], $_ENV['db_name'] );
+
+            self::$pdo_instance = new PDO( $dsn, $_ENV['db_user'], $_ENV['db_pass'], self::PDO_OPTIONS );
         }
 
-        return self::$Database_instance;
+        return self::$pdo_instance;
     }
 
     // Singleton etape 4: Bloquer l'utilisation de "clone" depuis l'exterieur 
