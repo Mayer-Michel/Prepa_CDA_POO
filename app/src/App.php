@@ -83,7 +83,7 @@ final class App
         // Erreur 500 avec status HTTP adequant pour tout autre problème temporaire ou non 
         catch( Throwable $M ){
             View::renderError( 500 );
-            //var_dump( $M );
+            var_dump( $M );
         }
     }
 
