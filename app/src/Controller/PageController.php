@@ -7,9 +7,10 @@ use Symplefony\View;
 use PDO;
 
 use App\Model\UserModel;
+use Symplefony\Controller;
 use Symplefony\Database;
 
-class PageController
+class PageController extends Controller
 {
     // Page d'accueil 
     public function index(): void
@@ -40,7 +41,7 @@ class PageController
 
         $user = new UserModel( $data );
         $new_user = userModel::create( $user );
-        $user_id = userModel::find_id( 14 );
+        $user_id = userModel::getById( 14 );
         var_dump( $user_id );
         var_dump( $new_user );
     }

@@ -1,12 +1,14 @@
 <?php
+
 namespace App\Model;
 
 use Symplefony\Database;
 use Symplefony\Model\Model;
+
 class UserModel extends Model
 {
     private const TABLE_NAME = 'users';
-
+    
     protected string $password;
     public function getPassword(): string { return $this->password; }
     public function setPassword( int $value ): self
@@ -22,6 +24,7 @@ class UserModel extends Model
         $this->email = $value;
         return $this;
     }
+
     protected string $firstname;
     public function getFirstname(): string { return $this->firstname; }
     public function setFirstname( int $value ): self
@@ -29,6 +32,7 @@ class UserModel extends Model
         $this->firstname = $value;
         return $this;
     }
+
     protected string $lastname;
     public function getLastname(): string { return $this->lastname; }
     public function setLastname( int $value ): self
@@ -36,6 +40,7 @@ class UserModel extends Model
         $this->lastname = $value;
         return $this;
     }
+
     protected string $phone_number;
     public function getPhoneNumber(): string { return $this->phone_number; }
     public function setPhoneNumber( int $value ): self
@@ -44,15 +49,21 @@ class UserModel extends Model
         return $this;
     }
 
-    /* CRUD: Create */
+
+    /* Crud: Create */
     public static function create( self $user ): ?self
     {
-        $query = sprintf('INSERT INTO `%s` (`password`, `email`, `firstname`, `lastname`, `phone_number`) VAlUES (:password, :email, :firstname, :lastname, :phone_number)', self::TABLE_NAME);
+        $query = sprintf(
+            'INSERT INTO `%s` 
+                (`password`,`email`,`firstname`,`lastname`,`phone_number`) 
+                VALUES (:password,:email,:firstname,:lastname,:phone_number)',
+            self::TABLE_NAME
+        );
 
         $sth = Database::getPDO()->prepare( $query );
-        
-        // Si la prepartion échoue
-        if( ! $sth ){
+
+        // Si la préparation échoue
+        if( ! $sth ) {
             return null;
         }
 
@@ -64,34 +75,80 @@ class UserModel extends Model
             'phone_number' => $user->getPhoneNumber()
         ]);
 
-        if( ! $success ){
+        // Si echec de l'insertion
+        if( ! $success ) {
             return null;
         }
 
-        // Ajout de l'id de l'item crée en base de données
+        // Ajout de l'id de l'item créé en base de données
         $user->setId( Database::getPDO()->lastInsertId() );
 
         return $user;
     }
 
-
-    public static function find_id(int $id): ?self
+    /* cRud: Read tous les items */
+    public static function getAll(): array
     {
-        $query = sprintf('SELECT * FROM `%s` WHERE `id` = :id', self::TABLE_NAME);
-        $sth = Database::getPDO()->prepare($query);
+        $query = sprintf(
+            'SELECT * FROM `%s`',
+            self::TABLE_NAME
+        );
 
-        if(!$sth){
-            return null;
+        $sth = Database::getPDO()->prepare( $query );
+
+        // Si la préparation échoue
+        if( ! $sth ) {
+            return [];
         }
 
-        $sth->execute(['id' => $id]);
-        $data = $sth->fetch();
+        $success = $sth->execute();
 
-        if(!$data){
-            return null;
+        // Si echec
+        if( ! $success ) {
+            return [];
         }
 
-        return new self($data);
+        // Récupération des résultats
+        $users = [];
+
+        while( $user_data = $sth->fetch() ) {
+            $user = new UserModel( $user_data );
+            $users[] = $user;
+        }
+
+        return $users;
     }
 
+    /* cRud: Read un item par son id */
+    public static function getById( int $id ): ?self
+    {
+        $query = sprintf(
+            'SELECT * FROM `%s` WHERE id=:id',
+            self::TABLE_NAME
+        );
+
+        $sth = Database::getPDO()->prepare( $query );
+
+        // Si la préparation échoue
+        if( ! $sth ) {
+            return null;
+        }
+
+        $success = $sth->execute([ 'id' => $id ]);
+
+        // Si echec
+        if( ! $success ) {
+            return null;
+        }
+
+        // Récupération du premier résultat
+        $user = $sth->fetch();
+
+        // Si aucun user ne correspond
+        if( ! $user ) {
+            return null;
+        }
+
+        return new self( $user );
+    }
 }

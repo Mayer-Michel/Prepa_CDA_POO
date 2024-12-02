@@ -1,0 +1,20 @@
+<h1>Liste des utilisateurs</h1>
+<?php if( !empty($users) ):?>
+<ul>
+    <?php foreach( $users as $user ):?>
+        <li>
+            <h1><?php  printf('%s %s', $user->getFirstname(), $user->getLastname() ) ?></h1>
+            <ul>
+                <li>Id: <?php echo $user->getId() ?></li>
+                <li>Email: <?php echo $user->getEmail() ?></li>
+                <li>Prénom: <?php echo $user->getFirstname() ?></li>
+                <li>Nom: <?php echo $user->getLastname() ?></li>
+                <li>Téléphone: <?php echo $user->getPhoneNumber() ?></li>
+            </ul>
+        </li>
+
+    <?php endforeach ?>
+</ul>
+<?php else: ?>
+    <div>Aucun untilisateur inscrit.</div>
+<?php endif ?>

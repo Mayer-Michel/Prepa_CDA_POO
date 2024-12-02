@@ -1,6 +1,8 @@
 <?php
+
 namespace Symplefony\Model;
-abstract class Model
+
+abstract class Model 
 {
     protected int $id;
     public function getId(): int { return $this->id; }
@@ -9,6 +11,7 @@ abstract class Model
         $this->id = $value;
         return $this; // Permet de "chaîner" les appels aux setters: $toto->setId(2)->setName('toto'), etc.
     }
+
     public function __construct( array $data = [] )
     {
         /*
@@ -20,7 +23,9 @@ abstract class Model
             if( !property_exists( $this, $column_name ) ) {
                 continue;
             }
+
             $this->$column_name = $value;
         }
     }
+
 }

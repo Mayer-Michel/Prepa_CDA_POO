@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 
-class AuthController
+use Symplefony\Controller;
+
+class AuthController extends Controller
 {
     public static function isAdmin(): bool
     {

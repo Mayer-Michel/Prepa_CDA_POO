@@ -1,0 +1,26 @@
+<h1>Ajouter unnouvel utilisateur</h1>
+<form action="/admin/users" method="post" novalidate>
+    <div>
+        <label for="input-email">Email :</label>
+        <input type="email" name="email" id="input-email">
+    </div>
+    <div>
+        <label for="input-password">Mot de passe :</label>
+        <input type="password" name="password" id="input-password">
+    </div>
+    <div>
+        <label for="input-firstname">Prénom :</label>
+        <input type="text" name="firstname" id="input-firstname">
+    </div>
+    <div>
+        <label for="input-lastname">Nom :</label>
+        <input type="text" name="lastname" id="input-lastname">
+    </div>
+    <div>
+        <label for="input-phone_number">Téléphone :</label>
+        <input type="tel" name="phone_number" id="input-phone_numbre">
+    </div>
+    <div>
+        <input type="submit" value="Ajouter">
+    </div>
+</form>
