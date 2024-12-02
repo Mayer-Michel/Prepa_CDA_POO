@@ -2,10 +2,9 @@
 
 namespace App\Model\Entity;
 
-use Symplefony\Model\IModel;
-use Symplefony\Model\Model;
+use Symplefony\Model\Entity;
 
-class User extends Model
+class User extends Entity
 {
     protected string $password;
     public function getPassword(): string { return $this->password; }

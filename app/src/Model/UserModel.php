@@ -3,9 +3,10 @@
 namespace App\Model;
 
 use Symplefony\Database;
-use Symplefony\Model\Model;
+use Symplefony\Model\Entity;
 
-class UserModel extends Model
+
+class UserModel extends Entity
 {
     private const TABLE_NAME = 'users';
     
