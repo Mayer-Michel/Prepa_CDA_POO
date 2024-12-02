@@ -24,7 +24,7 @@ class UserController extends Controller
         $view = new View( 'user:create-account' );
 
         $data = [
-            'title' => 'Créer mon compte - Autodingo.com'
+            'title' => 'Créer mon compte - Autocasse.com'
         ];
 
         $view->render( $data );

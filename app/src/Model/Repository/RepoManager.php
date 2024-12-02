@@ -12,10 +12,18 @@ class RepoManager
     private UserRepository $user_repository;
     public function getUserRepo(): UserRepository { return $this->user_repository; }
 
+    private CategoryRepository $category_repository;
+    public function getCategoryRepo(): CategoryRepository { return $this->category_repository; }
+
+    private CarRepository $car_repository;
+    public function getCarRepo(): CarRepository { return $this->car_repository; }
+
     private function __construct()
     {
         $pdo = Database::getPDO();
 
         $this->user_repository = new UserRepository( $pdo );
+        $this->category_repository = new CategoryRepository( $pdo );
+        $this->car_repository = new CarRepository( $pdo );
     }
 }

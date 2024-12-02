@@ -1,0 +1,31 @@
+Locations : "rentals"
+- id
+- client 
+- voiture 
+- date de début 
+- date de fin 
+- kilométrage de départ 
+- kilométrage de retour
+
+CLients/Chef/commerciaux : "users"
+- id
+- email
+- mot de passe
+- prénom
+- nom 
+- numéro de téléphone 
+- rôle utilisateur (droits dans l'application)
+
+Voitures : "cars"
+- id 
+- label 
+- nombre de places 
+- type d'énergie 
+- catégorie
+- numéro d'immatriculation
+- le prix à la journée 
+- prix du kilométre supplémentaire
+
+Catégories : "categories"
+- id 
+- label 

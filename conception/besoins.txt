@@ -1,0 +1,5 @@
+Autocasse est une application de gestion de location courte durée de voitures.
+Les fonctionnalités souhaités sont les suivantes : 
+- Le client peut louer une voiture à la journée.
+- Le chef d'entreprise peut créer/modifier/supprimer des voitures, des catégories, des clients, des commerciaux et des locations.
+- Le commercial peut créer/modifier des locations et des clients.

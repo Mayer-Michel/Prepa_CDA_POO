@@ -17,6 +17,8 @@ use Symplefony\View;
 
 use App\Controller\AdminController;
 use App\Controller\AuthController;
+use App\Controller\CarController;
+use App\Controller\CategoryController;
 use App\Controller\PageController;
 use App\Controller\UserController;
 use App\Middleware\AdminMiddleware;
@@ -83,6 +85,14 @@ final class App
 
             // Détail
             $router->get( '/users/{id}', [ UserController::class, 'show' ]);
+
+            // -- Category --
+            // Liste
+            $router->get( '/categories', [ CategoryController::class, 'index' ]);
+
+            // -- car --
+            // Liste
+            $router->get( '/cars', [CarController::class, 'index' ]);
         });
     }
 

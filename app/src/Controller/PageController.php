@@ -18,7 +18,7 @@ class PageController extends Controller
         $view = new View( 'page:home' );
 
         $data = [
-            'title' => 'Accueil - Autodingo'
+            'title' => 'Accueil - Autocasse'
         ];
 
         $view->render($data);

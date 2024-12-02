@@ -1,0 +1,19 @@
+<h1>Catégories</h1>
+<p>
+<h1>Liste des utilisateurs</h1>
+<?php if( !empty($categories) ):?>
+<ul>
+    <?php foreach( $categories as $category ):?>
+        <li>
+            <ul>
+                <li>Id: <?php echo $category->getId() ?></li>
+                <li>Label: <?php echo $category->getLabel() ?></li>
+            </ul>
+        </li>
+
+    <?php endforeach ?>
+</ul>
+<?php else: ?>
+    <div>Aucune catégorie définie.</div>
+<?php endif ?>
+</p>
