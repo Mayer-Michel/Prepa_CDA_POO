@@ -1,25 +1,18 @@
+<div>
+    <a href="/admin">🏠 Retour</a>
+</div> 
+
 <h1>Cars</h1>
 <p>
-<h1>Liste des voitures</h1>
+<a href="/admin/cars/add">Ajouter une voiture</a>
+</p>
+
 <?php if( !empty($cars) ):?>
 <ul>
     <?php foreach( $cars as $car ):?>
-        <li>
-            <ul>
-                <li>Id: <?php echo $car->getId() ?></li>
-                <li>Label: <?php echo $car->getLabel() ?></li>
-                <li>Seats: <?php echo $car->getSeats() ?></li>
-                <li>Energy: <?php echo $car->getEnergy() ?></li>
-                <li>Plate_number: <?php echo $car->getPlate_number() ?></li>
-                <li>Price_day: <?php echo $car->getPrice_day() ?></li>
-                <li>Price_distance: <?php echo $car->getPrice_distance() ?></li>
-                <li>Image: <?php echo $car->getImage() ?></li>
-            </ul>
-        </li>
-
+        <li><?php printf( '<a href="/admin/cars/%1$s">%1$s - %2$s</a>', $car->getId(), $car->getLabel()) ?></li>
     <?php endforeach ?>
 </ul>
 <?php else: ?>
     <div>Aucune voiture définie.</div>
 <?php endif ?>
-</p>

@@ -1,0 +1,54 @@
+<div>
+    <a href="/admin/cars">🔙 Retour</a>
+</div>
+
+<h1><?php printf( 'Voiture : %s - %s', $car->getId(), $car->getLabel() ) ?></h1>
+<h2>Modifier</h2>
+<form action="<?php printf( '/admin/cars/%s', $car->getId() ) ?>" method="post" novalidate>
+
+<div>
+        <label for="input-label">Label :</label>
+        <input type="text" name="label" id="input-label" value="<?php echo $car->getLabel() ?>">
+    </div>
+
+    <div>
+        <label for="input-seats">Place assises :</label>
+        <input type="number" name="seats" id="input-seats" value="<?php echo $car->getSeats() ?>">
+    </div>
+
+    <div>
+        <label for="select-label">Motorisation :</label>
+        <select name="energy" id="select-label">
+            <option value="" disabled>Choisissez...</option>
+            <!-- TODO: La boucle qui remonte les vraies motorisations -->
+            <option value="1" selected>Essence</option>
+        </select>
+    </div>
+
+    <div>
+        <label for="input-plate_number">Numéro d'immatriculation :</label>
+        <input type="text" name="plate_number" id="input-plate_number" value="<?php echo $car->getPlate_number() ?>">
+    </div>
+
+    <div>
+        <label for="input-price_day">Prix par jour :</label>
+        <input type="number" name="price_day" id="input-price_day" value="<?php echo $car->getPrice_day() ?>">
+    </div>
+
+    <div>
+        <label for="input-price_distance">Prix du kilomètre supplémentaire :</label>
+        <input type="number" name="price_distance" id="input-price_distance" value="<?php echo $car->getPrice_distance() ?>">
+    </div>
+
+    <div>
+        <label for="input-image">Image :</label>
+        <!-- TODO: Gérer l'upload d'image avec input de type "file" -->
+        <input type="text" name="image" id="input-image" value="<?php echo $car->getImage() ?>">
+    </div>
+
+        <input type="submit" value="Enregistrer la modification">
+    </div>
+</form>
+<div>
+    <a href="<?php printf( '/admin/cars/%s/delete', $car->getId() ) ?>">❌ Supprimer</a>
+</div>

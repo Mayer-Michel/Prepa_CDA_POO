@@ -12,7 +12,7 @@ class AdminController extends Controller
         $view = new View( 'page:admin:home' );
 
         $data = [
-            'Title' => 'Tableau de bord - Admin Autocasse.com'
+            'title' => 'Tableau de bord - Admin Autocasse.com'
         ];
 
         $view->render( $data);

@@ -16,7 +16,6 @@ use MiladRahimi\PhpRouter\Routing\Attributes;
 use Symplefony\View;
 
 use App\Controller\AdminController;
-use App\Controller\AuthController;
 use App\Controller\CarController;
 use App\Controller\CategoryController;
 use App\Controller\PageController;
@@ -99,8 +98,16 @@ final class App
             $router->get( '/categories/{id}/delete', [ CategoryController::class, 'delete' ] );
 
             // -- car --
+            // Ajout
+            $router->get( '/cars/add', [ CarController::class, 'add' ] );
+            $router->post( '/cars', [ CarController::class, 'create' ] );
             // Liste
             $router->get( '/cars', [CarController::class, 'index' ]);
+            // Détail/modification
+            $router->get( '/cars/{id}', [ CarController::class, 'show' ] );
+            $router->post( '/cars/{id}', [ CarController::class, 'update' ] );
+            // Suppression
+            $router->get( '/cars/{id}/delete', [ CarController::class, 'delete' ] );
         });
     }
 
