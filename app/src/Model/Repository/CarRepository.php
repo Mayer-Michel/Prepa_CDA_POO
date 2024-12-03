@@ -58,4 +58,47 @@ class CarRepository extends Repository
     {
         return $this->readById( Car::class, $id );
     }
+
+    /* crUd: Update */
+    public function update( Car $car ): ?Car
+    {
+        $query = sprintf(
+            'UPDATE `%s` 
+                SET 
+                    `label`=:label,
+                    `seats`=:seats,
+                    `energy`=:energy,
+                    `plate_number`=:plate_number,
+                    `price_day`=:price_day,
+                    `price_distance`=:price_distance,
+                    `image`=:image
+                WHERE id=:id',
+            $this->getTableName()
+        );
+
+        $sth = $this->pdo->prepare( $query );
+
+        // Si la préparation échoue
+        if( ! $sth ) {
+            return null;
+        }
+
+        $success = $sth->execute([
+            'label' => $car->getLabel(),
+            'seats' => $car->getSeats(),
+            'energy' => $car->getEnergy(),
+            'plate_number' => $car->getPlate_number(),
+            'price_day' => $car->getPrice_day(),
+            'price_distance' => $car->getPrice_distance(),
+            'image' => $car->getImage(),
+            'id' => $car->getId()
+        ]);
+
+        // Si echec de la mise à jour
+        if( ! $success ) {
+            return null;
+        }
+
+        return $car;
+    }
 }
