@@ -82,4 +82,24 @@ abstract class Repository
 
         return new $class_name( $object_data );
     }
+
+    /* cruD: Delete un item par son id */
+    public function deleteOne( int $id ): bool
+    {
+        $query = sprintf(
+            'DELETE FROM `%s` WHERE id=:id',
+            $this->getTableName()
+        );
+ 
+        $sth = $this->pdo->prepare( $query );
+ 
+        // Si la préparation échoue
+        if( ! $sth ) {
+            return false;
+        }
+ 
+        $success = $sth->execute([ 'id' => $id ]);
+ 
+        return $success;
+    }
 }

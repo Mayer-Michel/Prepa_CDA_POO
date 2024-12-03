@@ -10,6 +10,11 @@ class AdminController extends Controller
     public function dashboard(): void
     {
         $view = new View( 'page:admin:home' );
-        $view->render();
+
+        $data = [
+            'Title' => 'Tableau de bord - Admin Autocasse.com'
+        ];
+
+        $view->render( $data);
     }
 }

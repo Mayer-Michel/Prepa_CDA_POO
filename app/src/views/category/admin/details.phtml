@@ -1,0 +1,17 @@
+<div>
+    <a href="/admin/categories">🔙 Retour</a>
+</div>
+<h1><?php printf( 'Catégorie : %s - %s', $category->getId(), $category->getLabel() ) ?></h1>
+<h2>Modifier</h2>
+<form action="<?php printf( '/admin/categories/%s', $category->getId() ) ?>" method="post" novalidate>
+    <div>
+        <label for="input-label">Label :</label>
+        <input type="text" name="label" id="input-label" value="<?php echo $category->getLabel() ?>">
+    </div>
+    <div>
+        <input type="submit" value="Enregistrer la modification">
+    </div>
+</form>
+<div>
+    <a href="<?php printf( '/admin/categories/%s/delete', $category->getId() ) ?>">❌ Supprimer</a>
+</div>

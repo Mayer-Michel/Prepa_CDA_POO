@@ -87,8 +87,16 @@ final class App
             $router->get( '/users/{id}', [ UserController::class, 'show' ]);
 
             // -- Category --
+            // Ajout
+            $router->get( '/categories/add', [ CategoryController::class, 'add' ] );
+            $router->post( '/categories', [ CategoryController::class, 'create' ] );
             // Liste
             $router->get( '/categories', [ CategoryController::class, 'index' ]);
+            // Détail/modification
+            $router->get( '/categories/{id}', [ CategoryController::class, 'show' ] );
+            $router->post( '/categories/{id}', [ CategoryController::class, 'update' ] );
+            // Suppression
+            $router->get( '/categories/{id}/delete', [ CategoryController::class, 'delete' ] );
 
             // -- car --
             // Liste

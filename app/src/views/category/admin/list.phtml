@@ -1,19 +1,16 @@
+<div>
+    <a href="/admin">🏠 Retour</a>
+</div>
 <h1>Catégories</h1>
 <p>
-<h1>Liste des utilisateurs</h1>
-<?php if( !empty($categories) ):?>
+    <a href="/admin/categories/add">Ajouter une catégorie</a>
+</p>
+<?php if( !empty($categories) ): ?>
 <ul>
-    <?php foreach( $categories as $category ):?>
-        <li>
-            <ul>
-                <li>Id: <?php echo $category->getId() ?></li>
-                <li>Label: <?php echo $category->getLabel() ?></li>
-            </ul>
-        </li>
-
+    <?php foreach( $categories as $category ): ?>
+        <li><?php printf( '<a href="/admin/categories/%1$s">%1$s - %2$s</a>', $category->getId(), $category->getLabel() ) ?></li>
     <?php endforeach ?>
 </ul>
 <?php else: ?>
     <div>Aucune catégorie définie.</div>
 <?php endif ?>
-</p>
