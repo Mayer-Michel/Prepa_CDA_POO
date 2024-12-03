@@ -14,7 +14,7 @@ class Car extends Entity
         return $this;
     }
 
-    protected string $seats;
+    protected int $seats;
     public function getSeats(): int { return $this->seats; }
     public function setSeats( int $seats): self
     {
@@ -22,7 +22,7 @@ class Car extends Entity
         return $this;
     }
 
-    protected string $energy;
+    protected int $energy;
     public function getEnergy(): int { return $this->energy; }
     public function setEnergy( int $energy): self
     {
@@ -38,7 +38,7 @@ class Car extends Entity
         return $this;
     }
 
-    protected string $price_day;
+    protected float $price_day;
     public function getPrice_day(): float { return $this->price_day; }
     public function setPrice_day( float $price_day): self
     {
@@ -46,7 +46,7 @@ class Car extends Entity
         return $this;
     }
 
-    protected string $price_distance;
+    protected float $price_distance;
     public function getPrice_distance(): float { return $this->price_distance; }
     public function setPrice_distance( float $price_distance): self
     {
