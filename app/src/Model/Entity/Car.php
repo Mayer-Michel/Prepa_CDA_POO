@@ -55,7 +55,7 @@ class Car extends Entity
     }
 
     protected ?string $image;
-    public function getImage():?string { return $this->image; }
+    public function getImage(): ?string { return $this->image; }
     public function setImage( string $image): self
     {
         $this->image = $image;
